@@ -8,4 +8,3 @@
 ## Publications
 
 * [OpenStack + K8s Conformance](publications/openstack-+-k8s-conformance.md)
-
