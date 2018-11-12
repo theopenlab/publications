@@ -4,7 +4,7 @@ description: >-
   to documents.
 ---
 
-# Introduction
+# Getting Started
 
 ## OpenLab
 
