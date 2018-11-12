@@ -3,12 +3,13 @@
 * [Getting Started](README.md)
 
 ## Contributors
-* [Development Guide](contributor/development-guide.md)
-* [Connect to OpenLab](contributor/connect-to-openlab.md)
-* [Member Application](contributor/member-application.md)
-* [Sponsor Resources](contributor/sponsor-resources.md)
-* [Request Testing](contributor/testing-request.md)
-* [Supported Trigger Comments](contributor/supported-trigger-comments.md)
+
+* [Member Application](contributors/member-application.md)
+* [Test Request](contributors/testing-request.md)
+* [Development Guide](contributors/development-guide.md)
+* [Sponsor Resources](contributors/sponsor-resources.md)
+* [Connect to OpenLab](contributors/connect-to-openlab.md)
+* [Supported Trigger Comments](contributors/supported-trigger-comments.md)
 
 ## Publications
 
