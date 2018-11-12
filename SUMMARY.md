@@ -5,6 +5,10 @@
 * [OpenStack Summit Sydney](openstack-summit-sydney.md)
 * [OSCON 2018 - Portland](oscon-2018-portland.md)
 
+## Contributing
+* [Member Application](Member_Application.md)
+* [Development Guide](Development_guide.md)
+
 ## Publications
 
 * [OpenStack + K8s Conformance](publications/openstack-+-k8s-conformance.md)
