@@ -3,6 +3,12 @@
 * [Getting Started](README.md)
 
 ## Contributors
+* [Development Guide](contributor/development-guide.md)
+* [Connect to OpenLab](contributor/connect-to-openlab.md)
+* [Member Application](contributor/member-application.md)
+* [Sponsor Resources](contributor/sponsor-resources.md)
+* [Request Testing](contributor/testing-request.md)
+* [Supported Trigger Comments](contributor/supported-trigger-comments.md)
 
 ## Publications
 
