@@ -4,11 +4,11 @@
 
 ## Contributors
 
-* [Development Guide](contributors/development-guide.md)
-* [Connect to OpenLab](contributors/connect-to-openlab.md)
 * [Member Application](contributors/member-application.md)
+* [Test Request](contributors/testing-request.md)
+* [Development Guide](contributors/development-guide.md)
 * [Sponsor Resources](contributors/sponsor-resources.md)
-* [Request Testing](contributors/testing-request.md)
+* [Connect to OpenLab](contributors/connect-to-openlab.md)
 * [Supported Trigger Comments](contributors/supported-trigger-comments.md)
 
 ## Publications
