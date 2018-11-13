@@ -20,7 +20,7 @@ Join us to be a member of OpenLab firstly, then you will find out what's happeni
 
 ### Test request
 
-If you have an idea or real use case about some integration scenarios like integrating Kubernetes and OpenStack, and plan to do proof of concept\(POC\) against some technologies, all you have to do is just sharing your idea and use case in OpenLab, if others are interested in your case, they will pick up your task and complete the subsequent testing work, pay attention on updating of OpenLab [web site](https://openlabtesting.org/explore/), we will share the test result on it. Start your test request [here](https://github.com/theopenlab/openlab/issues/new?template=integration_test_request.md&labels=integration%20case) now.
+If you have an idea or real use case about some integration scenarios like integrating Kubernetes and OpenStack, and plan to do proof of concept\(POC\) against some technologies, all you have to do is just sharing your idea and use case in OpenLab, if others are interested in your case, they will pick up your task and complete the subsequent testing work, pay attention on updating of OpenLab [web site](https://openlabtesting.org/explore/), we will share the test result on it. Start your test request [here](https://github.com/theopenlab/openlab/issues/new?template=test-request.md&labels=integration%20case) now.
 
 ### Development
 

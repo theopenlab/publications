@@ -37,7 +37,7 @@ The accepted test requests can be found in [TODO list](https://github.com/orgs/t
 ## Working on Bug
 
 1. Bug reports for OpenLab are tracked in [bug list](https://github.com/theopenlab/openlab/issues) 
-2. Perhaps the merged CI job will fail due to some reasons after it has been running for some time, or if you find any other problems of OpenLab, welcome to [new](https://github.com/theopenlab/openlab/issues/new?template=bug_report.md&labels=bug) an issue
+2. Perhaps the merged CI job will fail due to some reasons after it has been running for some time, or if you find any other problems of OpenLab, welcome to [new](https://github.com/theopenlab/openlab/issues/new?template=report-bug.md&labels=bug) an issue
 3. The development core team @theopenlab/dev-core will confirm the bugs, add them into [TODO list](https://github.com/orgs/theopenlab/projects/1#column-1860008)
 4. You can assign one bug from TODO list, move the bug to [IN PROGRESS list](https://github.com/orgs/theopenlab/projects/1#column-1860011). Feel free to pick up the issues with label [need volunteer](https://github.com/theopenlab/openlab/labels/need%20volunteer), these issues are not claimed by anyone yet 
 5. Submit a PR\(Pull Request\) to [openlab-zuul-jobs](https://github.com/theopenlab/openlab-zuul-jobs) to fix bug, please add change details and link the bug number in PR's commit message:
