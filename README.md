@@ -16,7 +16,7 @@ There is plenty of room for helping to shape of future of OpenLab and ensuring t
 
 ### To be an OpenLab member
 
-Join us to be a member of OpenLab firstly, then you will find out what's happening in OpenLab, what fellow open source community members are doing using OpenLab resources, also as a member you can access OpenLab resources for your testing, please follow the simple [member application](https://github.com/theopenlab/publications/tree/8bc3bc09b693bb8dd2d1fcfb4de223bae07aca3b/contributor/Member_Application.md) guide. Then you will visit OpenLab [status board](https://github.com/orgs/theopenlab/projects/1).
+Join us to be a member of OpenLab firstly, then you will find out what's happening in OpenLab, what fellow open source community members are doing using OpenLab resources, also as a member you can access OpenLab resources for your testing, please follow the simple [member application](contributors/member-application.md) guide. Then you will visit OpenLab [status board](https://github.com/orgs/theopenlab/projects/1).
 
 ### Test request
 
@@ -24,11 +24,11 @@ If you have an idea or real use case about some integration scenarios like integ
 
 ### Development
 
-The main work of OpenLab is to provide an auto integration testing for different upstream tool chains of OpenStack, e.g. Gophercloud, Terraform. Always we have to add CI jobs for the test requests submitted to OpenLab, if you are interesting in this job, please follow [development guide](https://github.com/theopenlab/publications/tree/8bc3bc09b693bb8dd2d1fcfb4de223bae07aca3b/contributor/Development_guide.md).
+The main work of OpenLab is to provide an auto integration testing for different upstream tool chains of OpenStack, e.g. Gophercloud, Terraform. Always we have to add CI jobs for the test requests submitted to OpenLab, if you are interesting in this job, please follow [development guide](contributors/development-guide.md).
 
 ### Resource sponsoring
 
-The OpenLab has multiple resource pools\(virtual machine, physical machine and device\) provided by multiple cloud providers to run testing jobs, like VEXXHOST, OpenTelekomCloud, Citynetwork and so on. Thanks to OpenLab sponsors we can offer both virtual machine and physical machine to users for their own tests. We'd very appreciate it if you would like to [donate](https://github.com/theopenlab/publications/tree/8bc3bc09b693bb8dd2d1fcfb4de223bae07aca3b/contributor/Resource_Sponsor.md) resources to OpenLab.
+The OpenLab has multiple resource pools\(virtual machine, physical machine and device\) provided by multiple cloud providers to run testing jobs, like VEXXHOST, OpenTelekomCloud, Citynetwork and so on. Thanks to OpenLab sponsors we can offer both virtual machine and physical machine to users for their own tests. We'd very appreciate it if you would like to [donate](contributors/sponsor-resources.md) resources to OpenLab.
 
 ## References
 
