@@ -34,7 +34,7 @@ The OpenLab has multiple resource pools\(virtual machine, physical machine and d
 
 * OpenLab web site is hosted on [OpenLab](https://openlabtesting.org/)
 * Join OpenLab IRC channel `#askopenlab` on freenode.net, if you have no idea how to do it, see the [guide](https://freenode.net/kb/answer/chat)
-* OpenLab CI Jobs' [status](http://status.openlabtesting.org/status)
+* OpenLab CI jobs' [status](http://status.openlabtesting.org/status)
 * Source code of OpenLab CI jobs is hosted on [openlab-zuul-jobs](https://github.com/theopenlab/openlab-zuul-jobs)
 * The OpenLab CI github APP is hosted on [github APP](https://github.com/apps/theopenlab-ci)
 
