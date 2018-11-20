@@ -6,11 +6,11 @@ description: >-
 
 # Getting Started
 
-![](.gitbook/assets/getting_started.png)
-
 ## OpenLab
 
 OpenLab is a community-led program to test and improve support for the cloud-related SDKs/Tools as well as platforms like Kubernetes, Terraform, CloudFoundry and more. The goal is to improve the usability, reliability and resiliency of tools and applications for hybrid and multi-cloud environments.
+
+![](.gitbook/assets/getting_started.png)
 
 ## How to join OpenLab
 
