@@ -10,8 +10,6 @@ The OpenLab CI is built based on `NodePool` and `Zuul` tools of the OpenStack in
 
 ### Testing workflow
 
-![](../.gitbook/assets/testing_workflow%20%282%29.png)
-
 ### OpenLab CI arch
 
 ![](../.gitbook/assets/openlab_ci_arch.png)
