@@ -1,6 +1,7 @@
 # Supported Trigger Comments
 
-If a repository have connected to OpenLab, when pull request of the repository is `opened`, `changed` and `reopened`, those events will trigger OpenLab integration tests automatically by default, and test result will be pushed back into the comments of related pull request. If we want to trigger to retest the integration tests manually, please input the following special keyword in comments of pull request, enjoy it.
+Once a repository is connected to OpenLab, when a [pull request](https://help.github.com/articles/creating-a-pull-request/) on the repository is `opened`, `changed` or `reopened` those events will trigger OpenLab integration tests automatically by default, and test result will be pushed back into the comments of related pull request. 
+If you want to trigger a retest of integration tests manually you can input the following special keyphrases on a separate line in a comment on the pull request.
 
 ## kubernetes/cloud-provider-openstack
 
