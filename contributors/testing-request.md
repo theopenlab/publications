@@ -2,7 +2,7 @@
 
 ## Test request
 
-The OpenLab provides two kinds of resources: VM\(Virtual Machine\) and PM\(Physical Machine\) for testing. Currently we only utilize virtual machines to support automating jobs for SDKs and tools integration test with OpenLab CI. On the other hand you can request PMs for your special testing if VM can't meet your testing needs.
+The OpenLab provides at least two kinds of resources: VM\(Virtual Machine\) and PM\(Physical Machine\) for testing; switches, routers, IoT, etc also available. Currently we only utilize virtual machines to support automating jobs for SDKs and tools integration test with OpenLab CI. On the other hand you can request PMs for your special testing if VM can't meet your testing needs.
 
 1. Submit a [test request](https://github.com/theopenlab/openlab/issues/new?template=test-request.md&labels=integration%20case) to OpenLab, fill out some information to show your test cases like what testing scenario are you planning to implement, what kind of machines \(VMs or PMs\) and how many do you expect to use and so on 
 2. The governance team @theopenlab/governance will confirm the request to check whether it is acceptable, if yes then will add it into [TODO list](https://github.com/orgs/theopenlab/projects/1#column-1860008)
