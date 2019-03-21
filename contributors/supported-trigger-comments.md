@@ -18,9 +18,9 @@ Once a repository is connected to OpenLab, when a [pull request](https://help.gi
 | `/test cloud-provider-openstack-acceptance-test-csi-cinder` | **DONE** | Run integration tests against OpenStack Cinder, **CSI Cinder** |
 | `/test cloud-provider-openstack-acceptance-test-flexvolume-cinder` | **DONE** | Run integration tests against OpenStack Cinder, **Flexvolume Cinder** |
 | `/test cloud-provider-openstack-acceptance-test-e2e-conformance` | **DONE** | Run Kubernetes\(master\) E2E conformance test with cloud-provider-openstack |
-| `/test cloud-provider-openstack-acceptance-test-e2e-conformance-stable-branch-v1.10` | **DONE** | Run Kubernetes\(v1.10\) E2E conformance test with cloud-provider-openstack |
-| `/test cloud-provider-openstack-acceptance-test-e2e-conformance-stable-branch-v1.11` | **DONE** | Run Kubernetes\(v1.11\) E2E conformance test with cloud-provider-openstack |
 | `/test cloud-provider-openstack-acceptance-test-e2e-conformance-stable-branch-v1.12` | **DONE** | Run Kubernetes\(v1.12\) E2E conformance test with cloud-provider-openstack |
+| `/test cloud-provider-openstack-acceptance-test-e2e-conformance-stable-branch-v1.13` | **DONE** | Run Kubernetes\(v1.13\) E2E conformance test with cloud-provider-openstack |
+| `/test cloud-provider-openstack-acceptance-test-e2e-conformance-stable-branch-v1.14` | **DONE** | Run Kubernetes\(v1.14\) E2E conformance test with cloud-provider-openstack |
 
 **NOTE:** E2E conformance test result is shown in kubernetes testgrid dashboard [http://k8s-testgrid.appspot.com/conformance-cloud-provider-openstack](http://k8s-testgrid.appspot.com/conformance-cloud-provider-openstack) too.
 
