@@ -8,13 +8,9 @@ The OpenLab CI is built based on `NodePool` and `Zuul` tools of the OpenStack in
 * NodePool documentation is hosted on [NodePool](https://zuul-ci.org/docs/nodepool/)
 * Ansible documentation is hosted on [Ansible Docs](https://docs.ansible.com/)
 
-### Testing workflow
+## Testing workflow
 
 ![](../.gitbook/assets/testing_workflow%20%281%29.png)
-
-### OpenLab CI arch
-
-![](../.gitbook/assets/openlab_ci_arch.png)
 
 ## Working on test request with OpenLab CI
 
@@ -51,3 +47,111 @@ The accepted test requests can be found in [TODO list](https://github.com/orgs/t
 6. OpenLab development team @theopenlab/dev will review the PR and give some suggestion, development core team @theopenlab/dev-core have permission to merge it if there is no problem. When the PR is merged into openlab-zuul-jobs, you can test jobs by [trigger comments](supported-trigger-comments.md)
 7. Close the `In Progress` feature or bug by yourself when feature is implemented or bug is fixed.
 
+## Job naming notations
+
+When we implement an integration test request, usually we need to add new job into [openlab-zuul-jobs](https://github.com/theopenlab/openlab-zuul-jobs/tree/master/playbooks). To unify the job name format, we have the following naming notations:
+
+```text
+{project}-{test type}-{backend}-{service}-{version}
+```
+
+* The _**project**_ usually is the name of the git repository which contains tests to run.
+* The _**test type**_ is the type of tests to run, e.g. acceptance test, integration test, functional test, unit test.
+* The _**backend**_ is the test environment provider, include: deploying tools, public cloud, private cloud,
+
+  e.g. devstack, kubeadm, minikube, VEXXHOST, optionally, default is `devstack`.
+
+* The _**service**_ is the specific _**backend**_ service which this job will run against, optionally, default is `core services`.
+* The _**version**_ is the specific _**backend**_ version which this job will run against, optionally, default is `master`.
+
+For an example, the job definition about running the specific Trove related acceptance tests of terraform-provider-openstack repository can be named as:
+
+```text
+terraform-provider-openstack-acceptance-test-trove
+```
+
+And running Spark integration test against Kubernetes 1.13.0 that is deployed by minikube:
+
+```text
+spark-integration-test-minikube-k8s-1.13.0
+```
+
+## Periodic job and pipeline schedule
+
+OpenLab manage lots of periodic jobs for many projects, these jobs will be triggered by [OpenLab CI](http://status.openlabtesting.org) to execute testing and collect result in everyday. For decreasing OpenLab resource usage, we should split all of periodic jobs into each pipeline as evenly as possible, and avoiding concurrent jobs with same test target affect each other, like: public cloud tenant, for example, lots of periodic jobs run to create instance in same public cloud tenant, that will hit tenant quota limit. So there are three basic principles to help you to decide which pipeline when you want to add new periodic job:
+
+1. Split the jobs have same [backend](development-guide.md#job-naming-notations)\(public cloud account\), like: VEXXHOST, OpenTelekomCloud or HuaweiCloud into different pipeline to avoid influencing each other. Job backend is local deployed OpenStack, Kubernetes and other, that is OK in same pipeline.
+2. Split all of periodic jobs into each pipeline as evenly as possible.
+3. Choose the trigger time you like.
+
+#### Current pipeline and job mapping:
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Pipeline Name</th>
+      <th style="text-align:left">
+        <p>Trigger Time</p>
+        <p>(UTC-0)</p>
+      </th>
+      <th style="text-align:left">Projects</th>
+      <th style="text-align:left">Job count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">periodic-0/12</td>
+      <td style="text-align:left">0:00/12:00</td>
+      <td style="text-align:left">
+        <p><a href="https://github.com/theopenlab/openlab-zuul-jobs/blob/master/zuul.d/projects.yaml">ansible/ansible</a>
+        </p>
+        <p><a href="https://github.com/theopenlab/openlab-zuul-jobs/blob/master/zuul.d/projects.yaml">apache/spark</a>
+        </p>
+      </td>
+      <td style="text-align:left">12</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">periodic-2/14</td>
+      <td style="text-align:left">2:00/14:00</td>
+      <td style="text-align:left"><a href="https://github.com/theopenlab/openlab-zuul-jobs/blob/master/zuul.d/projects.yaml">terraform-providers/terraform-provider-openstack</a>
+        <br
+        /><a href="https://github.com/theopenlab/openlab-zuul-jobs/blob/master/zuul.d/projects.yaml">terraform-providers/terraform-provider-huaweicloud</a>
+      </td>
+      <td style="text-align:left">3</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">periodic-4/16</td>
+      <td style="text-align:left">4:00/16:00</td>
+      <td style="text-align:left"><a href="https://github.com/gophercloud/gophercloud/blob/master/.zuul.yaml">gophercloud/gophercloud</a>
+        <br
+        /><a href="https://github.com/cloudfoundry/bosh-openstack-cpi-release/blob/master/.zuul.yaml">cloudfoundry/bosh-openstack-cpi-release</a>
+        <br
+        /><a href="https://github.com/kubernetes/cloud-provider-openstack/blob/master/.zuul.yaml">kubernetes/cloud-provider-openstack</a>
+      </td>
+      <td style="text-align:left">11</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">periodic-6/18</td>
+      <td style="text-align:left">6:00/18:00</td>
+      <td style="text-align:left"><a href="https://github.com/theopenlab/openlab-zuul-jobs/blob/master/zuul.d/projects.yaml">hashicorp/packer</a>
+      </td>
+      <td style="text-align:left">10</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">periodic-8/20</td>
+      <td style="text-align:left">8:00/20:00</td>
+      <td style="text-align:left"><a href="https://github.com/theopenlab/openlab-zuul-jobs/blob/master/zuul.d/projects.yaml">docker/machine</a>
+      </td>
+      <td style="text-align:left">8</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">periodic-10/22</td>
+      <td style="text-align:left">10:00/22:00</td>
+      <td style="text-align:left"><a href="https://github.com/theopenlab/openlab-zuul-jobs/blob/master/zuul.d/projects.yaml">manageiq/manageiq-providers-openstack</a>
+        <br
+        /><a href="https://github.com/theopenlab/openlab-zuul-jobs/blob/master/zuul.d/projects.yaml">kubernetes-sigs/cluster-api-provider-openstack</a>
+      </td>
+      <td style="text-align:left">10</td>
+    </tr>
+  </tbody>
+</table>
