@@ -122,13 +122,17 @@ OpenLab manage lots of periodic jobs for many projects, these jobs will be trigg
     <tr>
       <td style="text-align:left">periodic-4/16</td>
       <td style="text-align:left">4:00/16:00</td>
-      <td style="text-align:left"><a href="https://github.com/gophercloud/gophercloud/blob/master/.zuul.yaml">gophercloud/gophercloud</a>
-        <br
-        /><a href="https://github.com/cloudfoundry/bosh-openstack-cpi-release/blob/master/.zuul.yaml">cloudfoundry/bosh-openstack-cpi-release</a>
-        <br
-        /><a href="https://github.com/kubernetes/cloud-provider-openstack/blob/master/.zuul.yaml">kubernetes/cloud-provider-openstack</a>
+      <td style="text-align:left">
+        <p><a href="https://github.com/gophercloud/gophercloud/blob/master/.zuul.yaml">gophercloud/gophercloud</a>
+          <br
+          /><a href="https://github.com/cloudfoundry/bosh-openstack-cpi-release/blob/master/.zuul.yaml">cloudfoundry/bosh-openstack-cpi-release</a>
+          <br
+          /><a href="https://github.com/kubernetes/cloud-provider-openstack/blob/master/.zuul.yaml">kubernetes/cloud-provider-openstack</a>
+        </p>
+        <p><a href="https://github.com/theopenlab/openlab-zuul-jobs/blob/master/zuul.d/projects.yaml">huaweicloud/openshift-ansible</a>
+        </p>
       </td>
-      <td style="text-align:left">11</td>
+      <td style="text-align:left">13</td>
     </tr>
     <tr>
       <td style="text-align:left">periodic-6/18</td>
