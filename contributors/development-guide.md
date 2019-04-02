@@ -113,21 +113,25 @@ OpenLab manage lots of periodic jobs for many projects, these jobs will be trigg
     <tr>
       <td style="text-align:left">periodic-2/14</td>
       <td style="text-align:left">2:00/14:00</td>
-      <td style="text-align:left"><a href="https://github.com/theopenlab/openlab-zuul-jobs/blob/master/zuul.d/projects.yaml">terraform-providers/terraform-provider-openstack</a>
-        <br
-        /><a href="https://github.com/theopenlab/openlab-zuul-jobs/blob/master/zuul.d/projects.yaml">terraform-providers/terraform-provider-huaweicloud</a>
+      <td style="text-align:left">
+        <p><a href="https://github.com/theopenlab/openlab-zuul-jobs/blob/master/zuul.d/projects.yaml">terraform-providers/terraform-provider-openstack</a>
+          <br
+          /><a href="https://github.com/theopenlab/openlab-zuul-jobs/blob/master/zuul.d/projects.yaml">terraform-providers/terraform-provider-huaweicloud</a>
+        </p>
+        <p><a href="https://github.com/theopenlab/openlab-zuul-jobs/blob/master/zuul.d/projects.yaml">helm/charts</a>
+        </p>
       </td>
-      <td style="text-align:left">3</td>
+      <td style="text-align:left">5</td>
     </tr>
     <tr>
       <td style="text-align:left">periodic-4/16</td>
       <td style="text-align:left">4:00/16:00</td>
       <td style="text-align:left">
-        <p><a href="https://github.com/gophercloud/gophercloud/blob/master/.zuul.yaml">gophercloud/gophercloud</a>
+        <p><a href="https://github.com/theopenlab/openlab-zuul-jobs/blob/master/zuul.d/projects.yaml">gophercloud/gophercloud</a>
           <br
-          /><a href="https://github.com/cloudfoundry/bosh-openstack-cpi-release/blob/master/.zuul.yaml">cloudfoundry/bosh-openstack-cpi-release</a>
+          /><a href="https://github.com/theopenlab/openlab-zuul-jobs/blob/master/zuul.d/projects.yaml">cloudfoundry/bosh-openstack-cpi-release</a>
           <br
-          /><a href="https://github.com/kubernetes/cloud-provider-openstack/blob/master/.zuul.yaml">kubernetes/cloud-provider-openstack</a>
+          /><a href="https://github.com/theopenlab/openlab-zuul-jobs/blob/master/zuul.d/projects.yaml">kubernetes/cloud-provider-openstack</a>
         </p>
         <p><a href="https://github.com/theopenlab/openlab-zuul-jobs/blob/master/zuul.d/projects.yaml">huaweicloud/openshift-ansible</a>
         </p>
@@ -137,9 +141,13 @@ OpenLab manage lots of periodic jobs for many projects, these jobs will be trigg
     <tr>
       <td style="text-align:left">periodic-6/18</td>
       <td style="text-align:left">6:00/18:00</td>
-      <td style="text-align:left"><a href="https://github.com/theopenlab/openlab-zuul-jobs/blob/master/zuul.d/projects.yaml">hashicorp/packer</a>
+      <td style="text-align:left">
+        <p><a href="https://github.com/theopenlab/openlab-zuul-jobs/blob/master/zuul.d/projects.yaml">hashicorp/packer</a>
+        </p>
+        <p><a href="https://github.com/theopenlab/openlab-zuul-jobs/blob/master/zuul.d/projects.yaml">kubernetes-sigs/kind</a>
+        </p>
       </td>
-      <td style="text-align:left">10</td>
+      <td style="text-align:left">11</td>
     </tr>
     <tr>
       <td style="text-align:left">periodic-8/20</td>
