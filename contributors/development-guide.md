@@ -47,15 +47,26 @@ The accepted test requests can be found in [TODO list](https://github.com/orgs/t
 6. OpenLab development team @theopenlab/dev will review the PR and give some suggestion, development core team @theopenlab/dev-core have permission to merge it if there is no problem. When the PR is merged into openlab-zuul-jobs, you can test jobs by [trigger comments](supported-trigger-comments.md)
 7. Close the `In Progress` feature or bug by yourself when feature is implemented or bug is fixed.
 
+## Integrate with OpenLab CI
+
+There are two ways to integrate development activities of target project with OpenLab CI, you can apply them individually in different scenarios, and applying both two ways is OK to OpenLab.
+
+1. Pull request of target project triggered
+   * Pros: Verifying against with pull request commit to avoid merging code with issue into master
+   * Cons: Need to install OpenLab github APP into target project for receiving github events, refer to [Connect to OpenLab](connect-to-openlab.md)
+2. Periodic pipeline of OpenLab triggered
+   * Pros: Don't need to install OpenLab github APP into target project
+   * Cons: Verifying in a fixed period, issues maybe exist in master of target project, issue detection and resolution are delayed.
+
 ## Job naming notations
 
 When we implement an integration test request, usually we need to add new job into [openlab-zuul-jobs](https://github.com/theopenlab/openlab-zuul-jobs/tree/master/playbooks). To unify the job name format, we have the following naming notations:
 
 ```text
-{project}-{test type}-{backend}-{service}-{version}
+{target project}-{test type}-{backend}-{service}-{version}
 ```
 
-* The _**project**_ usually is the name of the git repository which contains tests to run.
+* The _**target project**_ usually is the name of the git repository which contains tests to run.
 * The _**test type**_ is the type of tests to run, e.g. acceptance test, integration test, functional test, unit test.
 * The _**backend**_ is the test environment provider, include: deploying tools, public cloud, private cloud,
 
@@ -75,6 +86,21 @@ And running Spark integration test against Kubernetes 1.13.0 that is deployed by
 ```text
 spark-integration-test-minikube-k8s-1.13.0
 ```
+
+## Branch range of target and backend project validated by OpenLab
+
+OpenLab focus on verifying cross community application integration scenario, we assume base platform \(backend\) is stable and available to use, like: Kubernetes, OpenStack and so on, and assume target project should be improved to work together well with base platform \(backend\), so the following table show the scope OpenLab should covered.
+
+| Target project | Backend | OpenLab scope |
+| :--- | :--- | :--- |
+| master | master | yes |
+| master | released | yes |
+| released | released | yes |
+| released | master | no |
+
+{% hint style="info" %}
+The last case is just to verify backend project, should be covered in backend project CI.
+{% endhint %}
 
 ## Periodic job and pipeline schedule
 
