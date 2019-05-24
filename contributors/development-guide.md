@@ -58,35 +58,6 @@ There are two ways to integrate development activities of target project with Op
    * Pros: Don't need to install OpenLab github APP into target project
    * Cons: Verifying in a fixed period, issues maybe exist in master of target project, issue detection and resolution are delayed.
 
-## Job naming notations
-
-When we implement an integration test request, usually we need to add new job into [openlab-zuul-jobs](https://github.com/theopenlab/openlab-zuul-jobs/tree/master/playbooks). To unify the job name format, we have the following naming notations:
-
-```text
-{target project}-{test type}-{backend}-{service}-{version}
-```
-
-* The _**target project**_ usually is the name of the git repository which contains tests to run.
-* The _**test type**_ is the type of tests to run, e.g. acceptance test, integration test, functional test, unit test.
-* The _**backend**_ is the test environment provider, include: deploying tools, public cloud, private cloud,
-
-  e.g. devstack, kubeadm, minikube, VEXXHOST, optionally, default is `devstack`.
-
-* The _**service**_ is the specific _**backend**_ service which this job will run against, optionally, default is `core services`.
-* The _**version**_ is the specific _**backend**_ version which this job will run against, optionally, default is `master`.
-
-For an example, the job definition about running the specific Trove related acceptance tests of terraform-provider-openstack repository can be named as:
-
-```text
-terraform-provider-openstack-acceptance-test-trove
-```
-
-And running Spark integration test against Kubernetes 1.13.0 that is deployed by minikube:
-
-```text
-spark-integration-test-minikube-k8s-1.13.0
-```
-
 ## Branch range of target and backend project validated by OpenLab
 
 OpenLab focus on verifying cross community application integration scenario, we assume base platform \(backend\) is stable and available to use, like: Kubernetes, OpenStack and so on, and assume target project should be improved to work together well with base platform \(backend\), so the following table show the scope OpenLab should covered.
@@ -101,6 +72,32 @@ OpenLab focus on verifying cross community application integration scenario, we 
 {% hint style="info" %}
 The last case is just to verify backend project, should be covered in backend project CI.
 {% endhint %}
+
+## Job naming notations
+
+When we implement an integration test request, usually we need to add new job into [openlab-zuul-jobs](https://github.com/theopenlab/openlab-zuul-jobs/tree/master/playbooks). To unify the job name format, we have the following naming notations:
+
+```text
+{target project}-{version}-{test type}-{backend}-{backend version}
+```
+
+* The _**target project**_ usually is the name of the project repository which contains tests to run.
+* The _**version**_ is the version of target project, optionally, default is `master`.
+* The _**test type**_ is the type of tests to run, e.g. acceptance test, integration test, unit test or building.
+* The _**backend**_ is the test environment provider, include: deploying tools, public cloud, e.g. devstack, kubeadm, minikube, VEXXHOST, optionally, default is `devstack`.
+* The _**backend version**_ is the specific _**backend**_ version which this job will run against, optionally, default is `master`.
+
+For an example, the job definition about running master acceptance tests of terraform-provider-openstack against with master OpenStack that is deployed by devstack can be named as:
+
+```text
+terraform-provider-openstack-acceptance-test
+```
+
+And running master Spark integration test against Kubernetes 1.13.0 that is deployed by minikube:
+
+```text
+spark-integration-test-minikube-k8s-1.13.0
+```
 
 ## Periodic job and pipeline schedule
 
