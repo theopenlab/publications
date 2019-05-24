@@ -158,10 +158,10 @@ Supporting so many integration tests is not a easy thing for OpenLab CI, should 
 
 ## Periodic job and pipeline schedule
 
-OpenLab manage lots of periodic jobs for many projects, these jobs will be triggered by [OpenLab CI](http://status.openlabtesting.org) to execute testing and collect result in everyday. For decreasing OpenLab resource usage, we should split all of periodic jobs into each pipeline as evenly as possible, and avoiding concurrent jobs with same test target affect each other, like: public cloud tenant, for example, lots of periodic jobs run to create instance in same public cloud tenant, that will hit tenant quota limit. So there are three basic principles to help you to decide which pipeline when you want to add new periodic job:
+OpenLab manage lots of periodic jobs for many projects, these jobs will be triggered by [OpenLab CI](http://status.openlabtesting.org) to execute testing and collect result in everyday. For decreasing OpenLab resource usage, we should split all of periodic jobs into each pipeline as evenly as possible, and avoiding concurrent jobs with same test target affect each other. So there are three basic principles to help you to decide which pipeline when you want to add new periodic job:
 
-1. Split the jobs have same [backend](development-guide.md#job-naming-notations)\(public cloud account\), like: VEXXHOST, OpenTelekomCloud or HuaweiCloud into different pipeline to avoid influencing each other. Job backend is local deployed OpenStack, Kubernetes and other, that is OK in same pipeline.
-2. Split all of periodic jobs into each pipeline as evenly as possible.
+1. Split all of periodic jobs into each pipeline as evenly as possible.
+2. Job backend is local deployed OpenStack, Kubernetes and other, that is OK in same pipeline.
 3. Choose the trigger time you like.
 
 #### Current pipeline and job mapping:
@@ -188,35 +188,30 @@ OpenLab manage lots of periodic jobs for many projects, these jobs will be trigg
         <p><a href="https://github.com/theopenlab/openlab-zuul-jobs/blob/master/zuul.d/projects.yaml">apache/spark</a>
         </p>
       </td>
-      <td style="text-align:left">12</td>
+      <td style="text-align:left">11</td>
     </tr>
     <tr>
       <td style="text-align:left">periodic-2/14</td>
       <td style="text-align:left">2:00/14:00</td>
       <td style="text-align:left">
-        <p><a href="https://github.com/theopenlab/openlab-zuul-jobs/blob/master/zuul.d/projects.yaml">terraform-providers/terraform-provider-openstack</a>
-          <br
-          /><a href="https://github.com/theopenlab/openlab-zuul-jobs/blob/master/zuul.d/projects.yaml">terraform-providers/terraform-provider-huaweicloud</a>
-        </p>
+        <p>terraform-providers/terraform-provider-openstack</p>
+        <p>containerd/containerd</p>
         <p><a href="https://github.com/theopenlab/openlab-zuul-jobs/blob/master/zuul.d/projects.yaml">helm/charts</a>
         </p>
       </td>
-      <td style="text-align:left">5</td>
+      <td style="text-align:left">10</td>
     </tr>
     <tr>
       <td style="text-align:left">periodic-4/16</td>
       <td style="text-align:left">4:00/16:00</td>
       <td style="text-align:left">
-        <p><a href="https://github.com/theopenlab/openlab-zuul-jobs/blob/master/zuul.d/projects.yaml">gophercloud/gophercloud</a>
-          <br
-          /><a href="https://github.com/theopenlab/openlab-zuul-jobs/blob/master/zuul.d/projects.yaml">cloudfoundry/bosh-openstack-cpi-release</a>
+        <p><a href="https://github.com/theopenlab/openlab-zuul-jobs/blob/master/zuul.d/projects.yaml">cloudfoundry/bosh-openstack-cpi-release</a>
           <br
           /><a href="https://github.com/theopenlab/openlab-zuul-jobs/blob/master/zuul.d/projects.yaml">kubernetes/cloud-provider-openstack</a>
         </p>
-        <p><a href="https://github.com/theopenlab/openlab-zuul-jobs/blob/master/zuul.d/projects.yaml">huaweicloud/openshift-ansible</a>
-        </p>
+        <p>envoyproxy/envoy</p>
       </td>
-      <td style="text-align:left">13</td>
+      <td style="text-align:left">11</td>
     </tr>
     <tr>
       <td style="text-align:left">periodic-6/18</td>
@@ -227,23 +222,29 @@ OpenLab manage lots of periodic jobs for many projects, these jobs will be trigg
         <p><a href="https://github.com/theopenlab/openlab-zuul-jobs/blob/master/zuul.d/projects.yaml">kubernetes-sigs/kind</a>
         </p>
       </td>
-      <td style="text-align:left">11</td>
+      <td style="text-align:left">10</td>
     </tr>
     <tr>
       <td style="text-align:left">periodic-8/20</td>
       <td style="text-align:left">8:00/20:00</td>
-      <td style="text-align:left"><a href="https://github.com/theopenlab/openlab-zuul-jobs/blob/master/zuul.d/projects.yaml">docker/machine</a>
+      <td style="text-align:left">
+        <p><a href="https://github.com/theopenlab/openlab-zuul-jobs/blob/master/zuul.d/projects.yaml">docker/machine</a>
+        </p>
+        <p>gophercloud/gophercloud</p>
       </td>
-      <td style="text-align:left">8</td>
+      <td style="text-align:left">15</td>
     </tr>
     <tr>
       <td style="text-align:left">periodic-10/22</td>
       <td style="text-align:left">10:00/22:00</td>
-      <td style="text-align:left"><a href="https://github.com/theopenlab/openlab-zuul-jobs/blob/master/zuul.d/projects.yaml">manageiq/manageiq-providers-openstack</a>
-        <br
-        /><a href="https://github.com/theopenlab/openlab-zuul-jobs/blob/master/zuul.d/projects.yaml">kubernetes-sigs/cluster-api-provider-openstack</a>
+      <td style="text-align:left">
+        <p><a href="https://github.com/theopenlab/openlab-zuul-jobs/blob/master/zuul.d/projects.yaml">manageiq/manageiq-providers-openstack</a>
+          <br
+          /><a href="https://github.com/theopenlab/openlab-zuul-jobs/blob/master/zuul.d/projects.yaml">kubernetes-sigs/cluster-api-provider-openstack</a>
+        </p>
+        <p>dtantsur/rust-openstack</p>
       </td>
-      <td style="text-align:left">10</td>
+      <td style="text-align:left">12</td>
     </tr>
   </tbody>
 </table>
