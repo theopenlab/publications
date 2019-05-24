@@ -12,7 +12,7 @@ The OpenLab CI is built based on `NodePool` and `Zuul` tools of the OpenStack in
 
 ![](../.gitbook/assets/testing_workflow%20%281%29.png)
 
-## Working on test request with OpenLab CI
+### Working on test request with OpenLab CI
 
 The accepted test requests can be found in [TODO list](https://github.com/orgs/theopenlab/projects/1#column-1860008), developers can get start with following steps:
 
@@ -26,13 +26,13 @@ The accepted test requests can be found in [TODO list](https://github.com/orgs/t
 5. When your PR is merged into master of [openlab-zuul-jobs](https://github.com/theopenlab/openlab-zuul-jobs), trigger to test the integration job by [trigger comments](supported-trigger-comments.md), see the [build status](http://status.openlabtesting.org/builds), click result `FAILURE` enter the build web page and then click the `log url` to get the log details if the job fail. Maybe you can find some problems of job, feel free to submit new pull request to [openlab-zuul-jobs](https://github.com/theopenlab/openlab-zuul-jobs/pulls) to fix job issue, link the issue number of related test request in PR's commit message as we do on step3  
 6. Close the `In Progress` test request by yourself when the work completely, notify @theopenlab/governance and @theopenlab/docs to update website and documents in RP comments.
 
-## Working on test request with OpenLab physical machine
+### Working on test request with OpenLab physical machine
 
 1. If your test request need some physical machines, please contact @theopenlab/governance members in IRC channel or send them an email, they will help you to get OpenLab dedicated resources to launch testing
 2. When you can access the physical machines, move your test request to [IN PROGRESS list](https://github.com/orgs/theopenlab/projects/1#column-1860011), edit it to add the development plan into comments
 3. When the work is completely, close the `In Progress` test request by yourself, please commit the test result into comments of test request related issue. A blog also is a good choice to show more details of testing. Notify @theopenlab/governance and @theopenlab/docs to update website and documents in RP comments.
 
-## Working on feature and bug
+### Working on feature and bug
 
 1. Features and bugs for OpenLab are tracked in [issue list](https://github.com/theopenlab/openlab/issues) 
 2. Perhaps the merged CI job will fail due to some reasons after it has been running for some time, or if you find any other enhancement points or problems of OpenLab, welcome to [new](https://github.com/theopenlab/openlab/issues/new/choose) an issue
@@ -58,7 +58,7 @@ There are two ways to integrate development activities of target project with Op
    * Pros: Don't need to install OpenLab github APP into target project
    * Cons: Verifying in a fixed period, issues maybe exist in master of target project, issue detection and resolution are delayed.
 
-## Branch range of target and backend project validated by OpenLab
+### Branch range of target and backend project validated by OpenLab
 
 OpenLab focus on verifying cross community application integration scenario, we assume base platform \(backend\) is stable and available to use, like: Kubernetes, OpenStack and so on, and assume target project should be improved to work together well with base platform \(backend\), so the following table show the scope OpenLab should covered.
 
@@ -73,7 +73,7 @@ OpenLab focus on verifying cross community application integration scenario, we 
 The last case is just to verify backend project, should be covered in backend project CI.
 {% endhint %}
 
-## Job naming notations
+### Job naming notations
 
 When we implement an integration test request, usually we need to add new job into [openlab-zuul-jobs](https://github.com/theopenlab/openlab-zuul-jobs/tree/master/playbooks). To unify the job name format, we have the following naming notations:
 
@@ -93,11 +93,68 @@ For an example, the job definition about running master acceptance tests of terr
 terraform-provider-openstack-acceptance-test
 ```
 
-And running master Spark integration test against Kubernetes 1.13.0 that is deployed by minikube:
+And running Spark v2.4.3 integration test against Kubernetes 1.13.0 that is deployed by minikube:
 
 ```text
-spark-integration-test-minikube-k8s-1.13.0
+spark-v2.4.3-integration-test-minikube-k8s-1.13.0
 ```
+
+### Job inherit
+
+OpenLab's job definition should support to put multiple versions of target project together with multiple backends to verify integration stacks as more as possible, the version matrix looks like:
+
+| Job name | Target project | Backend |
+| :--- | :--- | :--- |
+| JobA | Spark v2.4.3 | Kubernetes 1.14.0 |
+| JobB | Spark v2.4.3 | Kubernetes 1.13.0 |
+| JobC | ... | ... |
+| JobX | Spark v2.3.3 | Kubernetes 1.14.0 |
+| JobY | Spark v2.3.3 | Kubernetes 1.13.0 |
+| JobZ | ... | ... |
+
+Considering test resource limits of OpenLab, we will cover master and latest released of target project and non-EOL backends at the begin, but if you have special needs to specific testing versions, please commit a [test request](testing-request.md) in OpenLab, let us knowing that, just like we have support multiple OpenStack EOL releases in OpenLab integration tests.
+
+Supporting so many integration tests is not a easy thing for OpenLab CI, should design job inherit structure carefully and try to reuse Ansible playbook to support multiple different testing cases, please follow the rule to add your code:
+
+* Define a base OpenLab zuul job and playbook for master of target project and master of backend. Base, son and grandson jobs run against same playbook `run.yaml` .
+
+{% code-tabs %}
+{% code-tabs-item title="Base job" %}
+```yaml
+- job:
+    name: spark-master-integration-test-kubeadm-k8s-master
+    parent: init-test
+    run: playbooks/spark-integration-test-kubeadm-k8s/run.yaml
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+* The son job should be pinned to a specific backend version to testing and inherit from base job. The playbook `run.yaml` of base job is important, that can switch backend version based on input variable, refer to [openlab-zuul-jobs/roles/create-single-k8s-cluster-with-kubeadm](https://github.com/theopenlab/openlab-zuul-jobs/blob/master/roles/create-single-k8s-cluster-with-kubeadm/tasks/main.yml#L20-L25).
+
+{% code-tabs %}
+{% code-tabs-item title="Son job" %}
+```yaml
+- job:
+    name: spark-master-integration-test-kubeadm-k8s-1.14.0
+    parent: spark-master-integration-test-kubeadm-k8s-master
+    vars:
+      kubernetes_version: 1.14.0
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+* The grandson job should be pinned to a specific target project version to testing and inherit from son job, we can use Zuul built-in attribute `override-checkout` to checkout target project code to specific branch or tag.
+
+{% code-tabs %}
+{% code-tabs-item title="Grandson job" %}
+```yaml
+- job:
+    name: spark-v2.4.3-integration-test-kubeadm-k8s-1.14.0
+    parent: spark-master-integration-test-kubeadm-k8s-1.14.0
+    override-checkout: v2.4.3
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 ## Periodic job and pipeline schedule
 
