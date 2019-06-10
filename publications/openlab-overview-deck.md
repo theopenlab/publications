@@ -1,4 +1,2 @@
 # OpenLab Overview Deck
 
-
-

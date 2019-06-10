@@ -10,7 +10,7 @@ The OpenLab CI is built based on `NodePool` and `Zuul` tools of the OpenStack in
 
 ## Testing workflow
 
-![](../.gitbook/assets/testing_workflow%20%281%29.png)
+![](../.gitbook/assets/testing_workflow-1.png)
 
 ### Working on test request with OpenLab CI
 
@@ -60,7 +60,7 @@ There are two ways to integrate development activities of target project with Op
 
 ### Branch range of target and backend project validated by OpenLab
 
-OpenLab focus on verifying cross community application integration scenario, we assume base platform \(backend\) is stable and available to use, like: Kubernetes, OpenStack and so on, and assume target project should be improved to work together well with base platform \(backend\), so the following table show the scope that the OpenLab should covered.
+OpenLab focus on verifying cross community application integration scenario, we assume base platform \(backend\) is stable and available to use, like: Kubernetes, OpenStack and so on, and assume target project should be improved to work together well with base platform \(backend\), so the following table show the scope OpenLab should covered.
 
 | Target project | Backend | OpenLab scope |
 | :--- | :--- | :--- |
@@ -78,7 +78,7 @@ The last case is just to verify backend project, should be covered in backend pr
 When we implement an integration test request, usually we need to add new job into [openlab-zuul-jobs](https://github.com/theopenlab/openlab-zuul-jobs/tree/master/playbooks). To unify the job name format, we have the following naming notations:
 
 ```text
-{target project}-{version}-{test type}-{backend}-{backend version}
+{target project}-{target project version}-{test type}-{backend}-{backend version}
 ```
 
 * The _**target project**_ usually is the name of the project repository which contains tests to run.
