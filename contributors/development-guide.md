@@ -83,7 +83,7 @@ When we implement an integration test request, usually we need to add new job in
 
 * The _**target project**_ usually is the name of the project repository which contains tests to run.
 * The _**version**_ is the version of target project, optionally, default is `master`.
-* The _**test type**_ is the type of tests to run, e.g. acceptance test, integration test, unit test or building.
+* The _**test type**_ is the type of test to run, e.g. acceptance test, integration test, unit test or building.
 * The _**backend**_ is the test environment provider, include: deploying tools, public cloud, e.g. devstack, kubeadm, minikube, VEXXHOST, optionally, default is `devstack`.
 * The _**backend version**_ is the specific _**backend**_ version which this job will run against, optionally, default is `master`.
 
