@@ -60,7 +60,7 @@ There are two ways to integrate development activities of target project with Op
 
 ### Branch range of target and backend project validated by OpenLab
 
-OpenLab focus on verifying cross community application integration scenario, we assume base platform \(backend\) is stable and available to use, like: Kubernetes, OpenStack and so on, and assume target project should be improved to work together well with base platform \(backend\), so the following table show the scope OpenLab should covered.
+OpenLab focus on verifying cross community application integration scenario, we assume base platform \(backend\) is stable and available to use, like: Kubernetes, OpenStack and so on, and assume target project should be improved to work together well with base platform \(backend\), so the following table show the scope that the OpenLab should covered.
 
 | Target project | Backend | OpenLab scope |
 | :--- | :--- | :--- |
