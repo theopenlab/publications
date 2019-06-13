@@ -1,2 +1,0 @@
-# OpenLab Overview Deck
-
