@@ -11,8 +11,7 @@
 * [Connect to OpenLab](contributors/connect-to-openlab.md)
 * [Supported Trigger Comments](contributors/supported-trigger-comments.md)
 
-## Publications
+## Governance
 
-* [OpenStack Summit Sydney](publications/openstack-summit-sydney.md)
-* [OSCON 2018 - Portland](publications/oscon-2018-portland.md)
+* [OpenLab Charter](https://github.com/theopenlab/governance/blob/master/CHARTER.md)
 

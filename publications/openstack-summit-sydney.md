@@ -1,2 +1,0 @@
-# OpenStack Summit Sydney
-
