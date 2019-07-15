@@ -83,8 +83,8 @@ When we implement an integration test request, usually we need to add new job in
 
 * The _**target project**_ usually is the name of the project repository which contains tests to run.
 * The _**version**_ is the version of target project, optionally, default is `master`.
-* The _**test type**_ is the type of test to run, e.g. acceptance test, integration test, unit test or building.
-* The _**backend**_ is the test environment provider, include: deploying tools, public cloud, e.g. devstack, kubeadm, minikube, VEXXHOST, optionally, default is `devstack`.
+* The _**test type**_ is the type of test to run, e.g. acceptance test, integration test, unit test or build.
+* The _**backend**_ is the test environment provider, include: deploying tools, public cloud, hardware platform, e.g. devstack, kubeadm, minikube, VEXXHOST, aarch64, optionally, default is `devstack`.
 * The _**backend version**_ is the specific _**backend**_ version which this job will run against, optionally, default is `master`.
 
 For an example, the job definition about running master acceptance tests of terraform-provider-openstack against with master OpenStack that is deployed by devstack can be named as:
@@ -93,10 +93,16 @@ For an example, the job definition about running master acceptance tests of terr
 terraform-provider-openstack-acceptance-test
 ```
 
-And running Spark v2.4.3 integration test against Kubernetes 1.13.0 that is deployed by minikube:
+Running Spark v2.4.3 integration test against Kubernetes 1.13.0 that is deployed by minikube:
 
 ```text
 spark-v2.4.3-integration-test-minikube-k8s-1.13.0
+```
+
+Running Hadoop master build test on aarch64 platform, platform should be consistent with `uname -m`:
+
+```text
+hadoop-build-aarch64
 ```
 
 ### Job inherit
