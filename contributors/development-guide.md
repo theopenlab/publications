@@ -78,14 +78,15 @@ The last case is just to verify backend project, should be covered in backend pr
 When we implement an integration test request, usually we need to add new job into [openlab-zuul-jobs](https://github.com/theopenlab/openlab-zuul-jobs/tree/master/playbooks). To unify the job name format, we have the following naming notations:
 
 ```text
-{target project}-{target project version}-{test type}-{backend}-{backend version}
+{target project}-{target project version}-{test type}-{backend}-{backend version}-{arch}
 ```
 
 * The _**target project**_ usually is the name of the project repository which contains tests to run.
 * The _**version**_ is the version of target project, optionally, default is `master`.
 * The _**test type**_ is the type of test to run, e.g. acceptance test, integration test, unit test or build.
-* The _**backend**_ is the test environment provider, include: deploying tools, public cloud, hardware platform, e.g. devstack, kubeadm, minikube, VEXXHOST, aarch64, optionally, default is `devstack`.
+* The _**backend**_ is the test environment provider, include: deploying tools, public cloud, hardware platform, e.g. devstack, kubeadm, minikube, VEXXHOST, optionally, default is `devstack`.
 * The _**backend version**_ is the specific _**backend**_ version which this job will run against, optionally, default is `master`.
+* The _**arch**_ is the platform architecture to run testing, e.g. x86\_64, arm64, optionally, default is `x86_64`.
 
 For an example, the job definition about running master acceptance tests of terraform-provider-openstack against with master OpenStack that is deployed by devstack can be named as:
 
@@ -99,10 +100,10 @@ Running Spark v2.4.3 integration test against Kubernetes 1.13.0 that is deployed
 spark-v2.4.3-integration-test-minikube-k8s-1.13.0
 ```
 
-Running Hadoop master build test on aarch64 platform, platform should be consistent with `uname -m`:
+Running Hadoop master branch build test on arm64 platform:
 
 ```text
-hadoop-build-aarch64
+hadoop-build-arm64
 ```
 
 ### Job inherit
