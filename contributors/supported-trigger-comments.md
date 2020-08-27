@@ -38,6 +38,8 @@ Once a repository is connected to OpenLab, when a [pull request](https://help.gi
 | `recheck stable/queens` | **DONE** | Run integration tests against OpenStack Queens release |
 | `recheck stable/rocky` | **DONE** | Run integration tests against OpenStack Rocky release |
 | `recheck stable/stein` | **DONE** | Run integration tests against OpenStack Stein release |
+| `recheck stable/train` | **DONE** | Run integration tests against OpenStack Train release |
+| `recheck stable/ussuri` | **DONE** | Run integration tests against OpenStack Ussuri release |
 
 ## terraform-providers/terraform-provider-openstack
 
